@@ -18,14 +18,18 @@
   "background": {
     "scripts": [
       "js/background.js"
-    ]
+    ],
+    "persistent": true
+  },
+  "icons": {
+    "16": "images/instant_autoplay16.png",
+    "32": "images/instant_autoplay32.png",
+    "48": "images/instant_autoplay48.png",
+    "128": "images/instant_autoplay128.png"
   },
   "permissions": [
     "*://www.youtube.com/*",
     "*://m.youtube.com/*",
-    "webRequest",
-    "storage",
-    "webRequestBlocking",
     "activeTab",
     "tabs"
   ]
