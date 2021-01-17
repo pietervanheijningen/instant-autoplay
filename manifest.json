@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "Instant autoplay",
+  "short_name": "Instant autoplay",
+  "version": "1.0",
+  "description": "Instant autoplay",
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.youtube.com/*",
+        "*://m.youtube.com/*"
+      ],
+      "js": [
+        "js/youtube.js"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "js/background.js"
+    ]
+  },
+  "permissions": [
+    "*://www.youtube.com/*",
+    "*://m.youtube.com/*",
+    "webRequest",
+    "storage",
+    "webRequestBlocking",
+    "activeTab",
+    "tabs"
+  ]
+}
