@@ -1,12 +1,13 @@
 function loadObserver() {
-    console.log("loading observer");
-    let element = document.getElementsByClassName('ytp-upnext')[0];
+    let element = document.getElementsByClassName('ytp-autonav-endscreen-countdown-container')[0];
 
     if (element !== undefined) {
         let observer = new MutationObserver(function (mutationsList) {
             for (let mutationRecord of mutationsList) {
-                if (mutationRecord.attributeName === "style" && mutationRecord.target.className === "ytp-upnext ytp-player-content ytp-suggestion-set") {
-                    mutationRecord.target.querySelector("a.ytp-upnext-autoplay-icon").click();
+                if (mutationRecord.attributeName === "style") {
+                    if (mutationRecord.target.className === "ytp-autonav-endscreen-button-container") {
+                        mutationRecord.target.querySelector("a.ytp-autonav-endscreen-upnext-play-button").click();
+                    }
                 }
             }
         });
@@ -16,10 +17,10 @@ function loadObserver() {
     }
 }
 
-setTimeout(loadObserver, 5000);
+setTimeout(loadObserver, 3000);
 
 chrome.runtime.onMessage.addListener(function (msg) {
     if (msg === "reloadObserver") {
-        setTimeout(loadObserver, 5000)
+        setTimeout(loadObserver, 3000)
     }
 });
